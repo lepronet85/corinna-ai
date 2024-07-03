@@ -1,13 +1,18 @@
-import React from 'react'
+import { AuthContextProvider } from "@/app/context/use-auth-context";
+import React from "react";
+import { FormProvider } from "react-hook-form";
 
 type Props = {
-  children: React.ReactNode,
-}
+  children: React.ReactNode;
+};
 
-const SignUpFormProvider = ({children}: Props) => {
+const SignUpFormProvider = ({ children }: Props) => {
   return (
-    <div>SignUpFormProvider</div>
-  )
-}
+    // <AuthContextProvider>
+    //   <FormProvider></FormProvider>
+    // </AuthContextProvider>
+    <></>
+  );
+};
 
-export default SignUpFormProvider
+export default SignUpFormProvider;

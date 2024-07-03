@@ -1,3 +1,4 @@
+import SignUpFormProvider from "@/components/forms/sign-up/form-provider";
 import React from "react";
 
 type Props = {};
