@@ -1,3 +1,4 @@
+import { Loader } from "@/components/loader";
 import { AuthContextProvider } from "@/context/use-auth-context";
 import { useSignUpForm } from "@/hooks/sign-up/use-sign-up";
 import React from "react";
@@ -15,7 +16,7 @@ const SignUpFormProvider = ({ children }: Props) => {
       <FormProvider {...methods}>
         <form onSubmit={onHandleSubmit} className="h-full">
           <div className="flex flex-col justify-between gap-3 h-full">
-            <Loader loading={loading}></Loader>
+            <Loader loading={loading}>{children}</Loader>
           </div>
         </form>
       </FormProvider>
