@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 
 type InitialValuesProps = {
@@ -6,7 +8,7 @@ type InitialValuesProps = {
 };
 
 const InitialValues: InitialValuesProps = {
-  currentStep: 0,
+  currentStep: 1,
   setCurrentStep: () => undefined,
 };
 

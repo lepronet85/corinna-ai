@@ -1,3 +1,5 @@
+"use client";
+
 import { useAuthContextHook } from "@/context/use-auth-context";
 import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
@@ -26,9 +28,24 @@ const RegistrationFromStep = (props: Props) => {
         />
       );
     case 2:
+      return (
+        // <DetailForm
+        //   errors={errors}
+        //   register={register}
+        // />
+        <></>
+      );
+    case 3:
+      return (
+        // <OTPForm
+        //   onOTP={onOTP}
+        //   setOTP={setOnOTP}
+        // />
+        <></>
+      );
   }
 
-  return <div>RegistrationFromStep</div>;
+  return <div>RegistrationFormStep</div>;
 };
 
 export default RegistrationFromStep;
