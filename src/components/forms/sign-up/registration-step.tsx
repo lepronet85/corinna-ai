@@ -7,6 +7,7 @@ import TypeSelectionForm from "./type-selection-form";
 import dynamic from "next/dynamic";
 import { Spinner } from "@/components/spinner";
 
+
 const DetailForm = dynamic(() => import("./account-details-form"), {
   ssr: false,
   loading: () => <Spinner />,

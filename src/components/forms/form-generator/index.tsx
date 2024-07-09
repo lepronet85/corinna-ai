@@ -2,6 +2,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import { Textarea } from "@/components/ui/textarea";
 
 type Props = {
   type: "text" | "email" | "password";
@@ -43,7 +45,7 @@ const FormGenerator = ({
             defaultValue={defaultValue}
             {...register(name)}
           />
-          {/* <ErrorMessage
+          <ErrorMessage
             errors={errors}
             name={name}
             render={({ message }) => (
@@ -51,10 +53,58 @@ const FormGenerator = ({
                 {message === "Required" ? "" : message}
               </p>
             )}
-          /> */}
+          />
         </Label>
       );
+
+    case "select":
+      return (
+        <Label htmlFor={`select-${label}`}>
+          {label && label}
+          <select form={form} id={`select-${label}`} {...register(name)}>
+            {options?.length &&
+              options.map((option) => (
+                <option value={option.value} key={option.id}>
+                  {option.label}
+                </option>
+              ))}
+          </select>
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <p className="text-red-400 mt-2">
+                {message === "Required" ? "" : message}
+              </p>
+            )}
+          />
+        </Label>
+      );
+    case "textarea":
+      return (
+        <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
+          {label && label}
+          <Textarea
+            form={form}
+            id={`input-${label}`}
+            placeholder={placeholder}
+            {...register(name)}
+            rows={lines}
+            defaultValue={defaultValue}
+          />
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <p className="text-red-400 mt-2">
+                {message === "Required" ? "" : message}
+              </p>
+            )}
+          />
+        </Label>
+      );
+    default:
+      return <></>;
   }
-  return <div>FormGenerator</div>;
 };
 export default FormGenerator;
